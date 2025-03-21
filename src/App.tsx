@@ -1,34 +1,37 @@
+import { Button, Card, CardActions, CardContent, CardHeader, Container, Grid2, Typography } from '@mui/material'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ShowCurrentLayer from './ShowCurrentLayer'
+import { LayerState } from './hooks/useRoomsState'
+import { Layouts } from './config/layouts'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [layerIndex, setLayerIndex] = useState(0);
+
+  const layer: LayerState = {
+    rooms: [],
+    layout: Layouts[layerIndex]
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Grid2 container>
+      <Grid2 size={6} >
+        <ShowCurrentLayer showEmplacments layer={layer} />
+      </Grid2>
+      <Grid2 size={6}>
+        <Card sx={{ width: "100%", height: "100%" }}>
+          <CardHeader title="Controls" />
+          <CardContent>
+            <Typography variant="body1">
+              This is a card with some controls
+            </Typography>
+            <Button onClick={() => setLayerIndex((layerIndex + 1) % Layouts.length)}>
+              Next Layer
+            </Button>
+          </CardContent>
+        </Card>
+      </Grid2>
+    </Grid2>
   )
 }
 

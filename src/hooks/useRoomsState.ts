@@ -4,7 +4,7 @@ import { Layout, Room } from "../config/layouts";
 
 export interface RoomState {
     room: Room;
-    emplacment: string;
+    emplacment: number;
     roomId: string;
 }
 
