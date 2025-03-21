@@ -1,12 +1,20 @@
 import { useState } from "react"
+import { Layout, Room } from "../config/layouts";
+
 
 export interface RoomState {
+    room: Room;
     emplacment: string;
     roomId: string;
 }
 
 export interface LayerState {
     rooms: RoomState[];
+    layout: Layout;
+}
+
+export interface RoomsState {
+    layers: LayerState[];
 }
 
 const useRoomState = () => {
@@ -20,6 +28,6 @@ const useRoomState = () => {
         return layers[index] || { rooms: [] }
     }
 
-    
+
 }
 
