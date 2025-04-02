@@ -1,9 +1,11 @@
-import { Box, Button, Chip, Dialog, List, ListItem, ListItemButton, ListItemText, Stack, SxProps } from "@mui/material";
+import { Box, Button, Chip, Dialog, Grid2, List, ListItem, ListItemButton, ListItemText, MenuItem, Select, Stack, SxProps, Typography } from "@mui/material";
 import { LayerState, RoomState } from "./generator/generateRooms";
 import { Link, PLAYER_COLORS } from "./config/layouts";
 import { Theme } from "@emotion/react";
 import { usePlayerState } from "./hooks/usePlayerState";
 import { useState } from "react";
+import { useStoryState } from "./hooks/useStoryState";
+import { useRoomsState } from "./hooks/useRoomsState";
 
 export interface RoomRenderProps {
     roomState: RoomState
@@ -18,6 +20,9 @@ const MIN_SEGMENT_SIZE = 10;
 function RoomRender({ roomState, layer, floor }: RoomRenderProps) {
     const [open, setOpen] = useState(false);
     const { playerStates, updatePlayerState } = usePlayerState();
+    const { validateStory, hasStory, unvalidateStory } = useStoryState();
+    const { modifyStoryById } = useRoomsState();
+    const [ selectStoryValue, setSelectStoryValue ] = useState(0);
 
     const emplacment = layer.layout.emplacments[roomState.emplacment];
     if (!emplacment) {
@@ -43,6 +48,17 @@ function RoomRender({ roomState, layer, floor }: RoomRenderProps) {
         textAlign: "center",
     }
 
+    const makeValidationStoryFunction = (key: string) => () => {
+        if (hasStory(key)) {
+            unvalidateStory(key);
+        }
+        else {
+            validateStory(key)
+        }
+    }
+
+    const storyKey = `${roomState.room.name}-${roomState.story?.year}`
+
     return (
         <Box sx={sx}>
             <Button sx={{ width: "100%", height: "100%"}} onClick={() => setOpen(true)}>
@@ -56,18 +72,62 @@ function RoomRender({ roomState, layer, floor }: RoomRenderProps) {
                     }
                 </Stack>
             </Button>
-            <Dialog onClose={() => setOpen(false)} open={open}>
-                <List>
-                    {
-                        playerStates.map((player) => (
-                            <ListItem disablePadding key={player.name}>
-                                <ListItemButton onClick={() => { updatePlayerState(player.name, { roomId: roomState.roomId, floor }); setOpen(false); }}>
-                                    <ListItemText primary={player.name} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))
-                    }
-                </List>
+            <Dialog onClose={() => setOpen(false)} open={open} fullWidth>
+                <Grid2 container>
+                    <Grid2 size={12} alignItems={"center"} justifyContent={"center"}>
+                        <Typography variant="h5">{`Room ${roomState.room.name}`}</Typography>
+                    </Grid2>
+                    <Grid2 size={4}>
+                        <List>
+                            {
+                                playerStates.map((player) => (
+                                    <ListItem disablePadding key={player.name}>
+                                        <ListItemButton onClick={() => { updatePlayerState(player.name, { roomId: roomState.roomId, floor }); setOpen(false); }}>
+                                            <ListItemText primary={player.name} />
+                                        </ListItemButton>
+                                    </ListItem>
+                                ))
+                            }
+                        </List>
+                    </Grid2>
+                    <Grid2 size={8}>
+                        Change story
+                        <Grid2 container>
+                            <Grid2 size={8}>
+                                <Select value={selectStoryValue} onChange={(value) => setSelectStoryValue(value.target.value as number)} fullWidth sx={{ mb: 5 }}>
+                                    {
+                                        roomState.room.sideStories.length ?
+                                            roomState.room.sideStories.map((story, index) => (
+                                                <MenuItem value={index}>
+                                                    <Typography color={hasStory(`${roomState.room.name}-${story.year}`) ? "error" : "info"}>{story.year}</Typography>
+                                                </MenuItem>
+                                            )) : 
+                                            [(
+                                                <MenuItem value={-1}>
+                                                    No story available
+                                                </MenuItem>
+                                            )]
+                                    }
+                                </Select>
+                            </Grid2>
+                            <Grid2 size={4}>
+                                <Button fullWidth onClick={() => {
+                                    modifyStoryById(roomState.roomId, selectStoryValue)
+                                }}>Validate</Button>
+                            </Grid2>
+                        </Grid2>
+                        {
+                            roomState.story && (
+                                <>
+                                    { hasStory(`${roomState.room.name}-${roomState.story.year}`) && (<Typography variant="caption" color="error">Story has been done</Typography>)}
+                                    <Typography variant="h6">{roomState.story.year}</Typography>
+                                    <Typography variant="body1">{ roomState.story.description }</Typography>
+                                    <Button onClick={makeValidationStoryFunction(storyKey)} sx={{mt: 5}} variant="contained" color={hasStory(storyKey) ? "info" : "error"}>{ hasStory(storyKey) ? `Unvalidate story` : `Validate story`}</Button>
+                                </>
+                            )
+                        }
+                    </Grid2>
+                </Grid2>
             </Dialog>
         </Box>
     )

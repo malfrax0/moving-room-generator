@@ -47,9 +47,21 @@ export const Rooms: Room[] = [
         chance: 4,
         sideStories: [
             {
-                year: 2016,
+                year: 2018,
                 description: `
-                    
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
                 `
             }
         ],
@@ -58,19 +70,76 @@ export const Rooms: Room[] = [
         name: "Cuisine",
         maxGenerated: 2,
         chance: 2,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Chambre",
         maxGenerated: 4,
         chance: 4,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Salle de bain",
         maxGenerated: 3,
         chance: 3,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Toilettes",
@@ -82,67 +151,201 @@ export const Rooms: Room[] = [
         name: "Dressing",
         maxGenerated: 1,
         chance: 3,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Bibliothèque",
         maxGenerated: 3,
         chance: 2,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Bureau",
         maxGenerated: 2,
         chance: 3,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Salle à manger",
         maxGenerated: 2,
         chance: 2,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Séjour",
         maxGenerated: 2,
         chance: 2,
-        sideStories: [],
-    },
-    {
-        name: "Cave",
-        maxGenerated: 1,
-        chance: 1,
-        sideStories: [],
-    },
-    {
-        name: "Grenier",
-        maxGenerated: 1,
-        chance: 1,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Atelier",
         maxGenerated: 2,
         chance: 2,
-        sideStories: [],
-    },
-    {
-        name: "Salle de sport",
-        maxGenerated: 1,
-        chance: 1,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Salle de jeux",
         maxGenerated: 1,
         chance: 1,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     },
     {
         name: "Studio",
         maxGenerated: 1,
         chance: 1,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2018,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2020,
+                description: `
+                    DESCRIPTION
+                `
+            },
+            {
+                year: 2022,
+                description: `
+                    DESCRIPTION
+                `
+            }
+        ],
     }
 ];
 

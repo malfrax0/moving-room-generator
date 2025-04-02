@@ -2,6 +2,7 @@ import React from "react";
 import { atom, useRecoilState } from "recoil";
 import { generateRooms, LayerState, RoomsState, RoomState } from "../generator/generateRooms";
 import { usePlayerState } from "./usePlayerState";
+import { useStoryState } from "./useStoryState";
 
 const ROOMS_STATE_KEY = "rooms-state";
 
@@ -27,6 +28,7 @@ const roomsState = atom<RoomsState>({
 export const useRoomsState = () => {
     const { playerStates } = usePlayerState();
     const [state, setState] = useRecoilState<RoomsState>(roomsState);
+    const { hasStory } = useStoryState();
 
     const { layers } = state;
 
@@ -77,10 +79,11 @@ export const useRoomsState = () => {
                 if (index === floor) return [];
                 return layer.rooms.map(({ room }) => room)
             }),
-            frozenRooms: layers[floor].rooms.filter((room) => {
+            frozenRooms: layers[floor] ? layers[floor].rooms.filter((room) => {
                 return playerStates.some((playerState) => playerState.roomId === room.roomId);
-            }),
-            floor
+            }) : [],
+            floor,
+            hasStory
         });
         if (newLayer === null) {
             console.error("New layer impossible.");
@@ -110,6 +113,31 @@ export const useRoomsState = () => {
         }
     }
 
+    const modifyStoryById = (roomId: string, storyIndex: number) => {
+        if (storyIndex < 0) return;
+        layers.forEach((layer, index) => {
+            const roomIndex = layer.rooms.findIndex((room) => room.roomId === roomId);
+            if (roomIndex > -1) {
+                const roomState = layer.rooms[roomIndex];
+                const room = roomState.room;
+                if (room.sideStories.length > storyIndex) {
+                    setState(prevLayer => {
+                        const layer = JSON.parse(JSON.stringify(prevLayer));
+                        console.log(`${index} - ${roomIndex} - ${storyIndex}`)
+                        layer.layers[index].rooms[roomIndex] = {
+                            ...roomState,
+                            story: {
+                                key: `${roomState.roomId}-${room.sideStories[storyIndex].year}`,
+                                ...room.sideStories[storyIndex]
+                            }
+                        }
+                        return layer;
+                    })
+                }
+            }
+        });
+    }
+
     return {
         layers,
         getLayer,
@@ -118,6 +146,7 @@ export const useRoomsState = () => {
         generateLayer,
         removeLayer,
         findRoomById,
+        modifyStoryById
     }
 }
 

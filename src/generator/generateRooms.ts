@@ -5,6 +5,11 @@ export interface RoomState {
     room: Room;
     emplacment: number;
     roomId: string;
+    story?: {
+        key: string,
+        year: number,
+        description: string
+    }
 }
 
 export interface LayerState {
@@ -20,9 +25,10 @@ export interface GenerateRoomsOptions {
     lockedRooms: Room[];
     frozenRooms: RoomState[];
     floor: number;
+    hasStory: (key: string) => boolean;
 }
 
-export function generateRooms({ lockedRooms, frozenRooms, floor }: GenerateRoomsOptions): LayerState | null {
+export function generateRooms({ lockedRooms, frozenRooms, floor, hasStory }: GenerateRoomsOptions): LayerState | null {
     const usableLayouts = Layouts.filter((layout) => {
         if (layout.notOn0 && floor === 0) return false;
         if (layout.onlyOn0 && floor !== 0) return false;
@@ -81,10 +87,23 @@ export function generateRooms({ lockedRooms, frozenRooms, floor }: GenerateRooms
             continue;
         }
         const room = usableRoomsWeighted[Math.floor(Math.random() * usableRoomsWeighted.length)];
+        
+        let story: RoomState['story'] = undefined;
+        const storiesAvailable = room.sideStories.filter((story) => !hasStory(`${room.name}-${story.year}`));
+        
+        if (storiesAvailable.length) {
+            const choosenStory = storiesAvailable[Math.floor(Math.random() * storiesAvailable.length)];
+            story = {
+                key: `${room.name}-${choosenStory.year}`,
+                ...choosenStory
+            }
+        }
+
         newRooms.push({
             emplacment: i,
             roomId: v7(),
             room,
+            story
         });
     }
 
