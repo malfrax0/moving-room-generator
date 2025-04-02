@@ -1,4 +1,12 @@
 
+export const PLAYER_COLORS = [
+  "#2980b9",
+  "#8e44ad",
+  "#27ae60",
+  "#f39c12",
+  "#c0392b",
+]
+
 export interface Link {
     emplacmentIdA: number,
     emplacmentIdB: number
@@ -9,6 +17,7 @@ export interface Emplacment {
     y: number,
     width: number,
     height: number,
+    noGeneration?: boolean,
     name?: string
 }
 
@@ -20,7 +29,7 @@ export interface Layout {
 }
 
 export interface SideStory {
-    year: number,
+    year: 2022 | 2020 | 2018 | 2016,
     description: string
 }
 
@@ -36,7 +45,14 @@ export const Rooms: Room[] = [
         name: "Salon",
         maxGenerated: 1,
         chance: 4,
-        sideStories: [],
+        sideStories: [
+            {
+                year: 2016,
+                description: `
+                    
+                `
+            }
+        ],
     },
     {
         name: "Cuisine",
@@ -130,27 +146,30 @@ export const Rooms: Room[] = [
     }
 ];
 
-const commonEmplacments: Emplacment[] = [
+export const commonEmplacments: Emplacment[] = [
     {
         x: 0,
         y: -150,
         width: 100,
         height: 400,
-        name: "Couloir principal"
+        name: "Couloir principal",
+        noGeneration: true
     },
     {
         x: -200,
         y: -150,
         width: 200,
         height: 100,
-        name: "Couloir secondaire"
+        name: "Couloir secondaire",
+        noGeneration: true
     },
     {
         x: -100,
         y: 150,
         width: 100,
         height: 100,
-        name: "Escalier"
+        name: "Escalier",
+        noGeneration: true
     },
 ]
 
@@ -452,6 +471,13 @@ export const Layouts: Layout[] = [
                 height: 300,
                 name: "Piece B"
             },
+            {
+                x: -200,
+                y: -50,
+                width: 200,
+                height: 150,
+                name: "Piece C"
+            },
         ],
         links: [
             ...commonLinks,
@@ -464,25 +490,9 @@ export const Layouts: Layout[] = [
                 emplacmentIdB: 4
             },
             {
-                emplacmentIdA: 0,
+                emplacmentIdA: 1,
                 emplacmentIdB: 5
-            },
-            {
-                emplacmentIdA: 0,
-                emplacmentIdB: 6
-            },
-            {
-                emplacmentIdA: 0,
-                emplacmentIdB: 7
-            },
-            {
-                emplacmentIdA: 8,
-                emplacmentIdB: 1
-            },
-            {
-                emplacmentIdA: 9,
-                emplacmentIdB: 0
-            },
+            }
         ],
         onlyOn0: false,
         notOn0: false

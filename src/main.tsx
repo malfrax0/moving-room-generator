@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import { ThemeProvider } from '@emotion/react'
 import { createTheme, CssBaseline } from '@mui/material'
+import { RecoilRoot } from 'recoil'
 
 const theme = createTheme({
   palette: {
@@ -11,10 +12,12 @@ const theme = createTheme({
 })
 
 createRoot(document.getElementById('root')!).render(
+  <RecoilRoot>
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <StrictMode>
           <App />
       </StrictMode>
-    </ThemeProvider>
+    </ThemeProvider> 
+  </RecoilRoot>
 )

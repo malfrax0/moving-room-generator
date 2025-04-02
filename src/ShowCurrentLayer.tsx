@@ -1,18 +1,23 @@
-import { Box, SxProps } from "@mui/material";
-import { LayerState, RoomState } from "./hooks/useRoomsState";
-import { Link } from "./config/layouts";
+import { Box, Button, Chip, Dialog, List, ListItem, ListItemButton, ListItemText, Stack, SxProps } from "@mui/material";
+import { LayerState, RoomState } from "./generator/generateRooms";
+import { Link, PLAYER_COLORS } from "./config/layouts";
 import { Theme } from "@emotion/react";
+import { usePlayerState } from "./hooks/usePlayerState";
+import { useState } from "react";
 
 export interface RoomRenderProps {
     roomState: RoomState
     layer: LayerState
+    floor: number
 }
 
 const LAYER_WIDTH = 700;
 const LAYER_HEIGHT = 700;
 const MIN_SEGMENT_SIZE = 10;
 
-function RoomRender({ roomState, layer }: RoomRenderProps) {
+function RoomRender({ roomState, layer, floor }: RoomRenderProps) {
+    const [open, setOpen] = useState(false);
+    const { playerStates, updatePlayerState } = usePlayerState();
 
     const emplacment = layer.layout.emplacments[roomState.emplacment];
     if (!emplacment) {
@@ -40,7 +45,30 @@ function RoomRender({ roomState, layer }: RoomRenderProps) {
 
     return (
         <Box sx={sx}>
-            { roomState.room.name || emplacment.name }
+            <Button sx={{ width: "100%", height: "100%"}} onClick={() => setOpen(true)}>
+                <Stack spacing={1} sx={{margin: 1}}>
+                    { roomState.room.name || emplacment.name }
+                    {
+                        playerStates.map((player, index) => (
+                            player.roomId === roomState.roomId && player.floor === floor &&
+                                <Chip key={player.name} size="small" label={player.name} sx={{ backgroundColor: PLAYER_COLORS[index] }} />
+                        ))
+                    }
+                </Stack>
+            </Button>
+            <Dialog onClose={() => setOpen(false)} open={open}>
+                <List>
+                    {
+                        playerStates.map((player) => (
+                            <ListItem disablePadding key={player.name}>
+                                <ListItemButton onClick={() => { updatePlayerState(player.name, { roomId: roomState.roomId, floor }); setOpen(false); }}>
+                                    <ListItemText primary={player.name} />
+                                </ListItemButton>
+                            </ListItem>
+                        ))
+                    }
+                </List>
+            </Dialog>
         </Box>
     )
 }
@@ -88,7 +116,6 @@ function LinkRender({ link, layer }: LinkRenderProps) {
                 if (toVector.x === 0) {
                     const allY = [fromSegment.y1, fromSegment.y2, toSegment.y1, toSegment.y2].sort((a, b) => a - b);
                     if (Math.abs(allY[2] - allY[1]) >= MIN_SEGMENT_SIZE) {
-                        console.log("Common segment found x==0", allY);
                         segmentOverlap.push({
                             x: fromSegment.x1,
                             y: (allY[2] - allY[1]) / 2 + allY[1],
@@ -137,11 +164,16 @@ function LinkRender({ link, layer }: LinkRenderProps) {
 
 
 export interface ShowCurrentLayerProps {
-    layer: LayerState
+    layer: LayerState | null
     showEmplacments?: boolean
+    floor: number
 }
 
-export default function ShowCurrentLayer({layer, showEmplacments}: ShowCurrentLayerProps) {
+export default function ShowCurrentLayer({layer, showEmplacments, floor}: ShowCurrentLayerProps) {
+    if (!layer) {
+        return null;
+    }
+
     const rooms = showEmplacments ? layer.layout.emplacments.map<RoomState>((empl, index) => ({
         emplacment: index,
         roomId: `emplacment-${index}`,
@@ -157,7 +189,7 @@ export default function ShowCurrentLayer({layer, showEmplacments}: ShowCurrentLa
         <Box sx={{ border: "1px solid white", position: "relative", width: `${LAYER_WIDTH}px`, height: `${LAYER_HEIGHT}px` }}>
             {
                 rooms.map((roomState) => (
-                    <RoomRender key={roomState.roomId} roomState={roomState} layer={layer} />
+                    <RoomRender key={roomState.roomId} roomState={roomState} layer={layer} floor={floor} />
                 ))
             }
             {
