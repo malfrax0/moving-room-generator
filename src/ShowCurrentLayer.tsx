@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Dialog, Grid2, List, ListItem, ListItemButton, ListItemText, MenuItem, Select, Stack, SxProps, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Chip, Dialog, Grid2, List, ListItem, ListItemButton, ListItemText, MenuItem, Select, Stack, SxProps, Tooltip, Typography } from "@mui/material";
 import { LayerState, RoomState } from "./generator/generateRooms";
 import { Link, PLAYER_COLORS } from "./config/layouts";
 import { Theme } from "@emotion/react";
@@ -60,37 +60,40 @@ function RoomRender({ roomState, layer, floor }: RoomRenderProps) {
     const storyKey = `${roomState.room.name}-${roomState.story?.year}`
 
     return (
+        
         <Box sx={sx}>
-            <Button sx={{ width: "100%", height: "100%"}} onClick={() => setOpen(true)}>
-                <Stack spacing={1} sx={{margin: 1}}>
-                    { roomState.room.name || emplacment.name }
-                    {
-                        playerStates.map((player, index) => (
-                            player.roomId === roomState.roomId && player.floor === floor &&
+            <Tooltip title={roomState.room.doorDescription}>
+                <Button sx={{ width: "100%", height: "100%"}} onClick={() => setOpen(true)}>
+                    <Stack spacing={1} sx={{margin: 1}}>
+                        { roomState.room.name || emplacment.name }
+                        {
+                            playerStates.map((player, index) => (
+                                player.roomId === roomState.roomId && player.floor === floor &&
                                 <Chip key={player.name} size="small" label={player.name} sx={{ backgroundColor: PLAYER_COLORS[index] }} />
-                        ))
-                    }
-                </Stack>
-            </Button>
-            <Dialog onClose={() => setOpen(false)} open={open} fullWidth>
+                            ))
+                        }
+                    </Stack>
+                </Button>
+            </Tooltip>
+            <Dialog onClose={() => setOpen(false)} fullWidth maxWidth={"lg"} open={open} sx={{ minWidth: "90vw"}}>
                 <Grid2 container>
                     <Grid2 size={12} alignItems={"center"} justifyContent={"center"}>
                         <Typography variant="h5">{`Room ${roomState.room.name}`}</Typography>
                     </Grid2>
-                    <Grid2 size={4}>
+                    <Grid2 size={2} sx={{ borderRight: "1px solid white", p: 1}}>
                         <List>
                             {
                                 playerStates.map((player) => (
                                     <ListItem disablePadding key={player.name}>
-                                        <ListItemButton onClick={() => { updatePlayerState(player.name, { roomId: roomState.roomId, floor }); setOpen(false); }}>
-                                            <ListItemText primary={player.name} />
+                                        <ListItemButton onClick={() => { updatePlayerState(player.name, { roomId: roomState.roomId, floor }); }}>
+                                            <ListItemText primary={player.name} sx={{ color: player.roomId === roomState.roomId ? "green" : "inherit" }} />
                                         </ListItemButton>
                                     </ListItem>
                                 ))
                             }
                         </List>
                     </Grid2>
-                    <Grid2 size={8}>
+                    <Grid2 size={4} sx={{ borderRight: "1px solid white", p: 1}}>
                         Change story
                         <Grid2 container>
                             <Grid2 size={8}>
@@ -126,6 +129,20 @@ function RoomRender({ roomState, layer, floor }: RoomRenderProps) {
                                 </>
                             )
                         }
+                    </Grid2>
+                    <Grid2 size={4} sx={{ p: 1 }}>
+                        <Stack>
+                            {
+                                roomState.room.objects?.map((value, index) => (
+                                    <Accordion>
+                                        <AccordionSummary><Typography component="span">{index + 1} - {value.split("(")[0]}</Typography></AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography>{value}</Typography>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                ))
+                            }
+                        </Stack>
                     </Grid2>
                 </Grid2>
             </Dialog>

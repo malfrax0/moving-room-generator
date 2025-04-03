@@ -35,6 +35,8 @@ export interface SideStory {
 
 export interface Room {
     name: string,
+    doorDescription: string,
+    objects: string[],
     maxGenerated: number,
     chance: number,
     sideStories: SideStory[],
@@ -43,6 +45,19 @@ export interface Room {
 export const Rooms: Room[] = [
     {
         name: "Salon",
+        doorDescription: "Une double porte en bois massif",
+        objects: [
+            "Cheminée (Brique amovible qui contient des dessins de chien de Tindalos)",
+            "Canapé",
+            "Table basse (Un tiroir à double fond qui contient une sorte de recette pour faire disparaitre le mauvais oeil)",
+            "Lampe de table (Si allumé clignote bizarre)",
+            "Tapis (Un amas de poussière considerable se dégage du tapis)",
+            "Bibliothèque mural (Rien d'intéressant mais cache un passage derrière. Le joueur peut s'en rendre compte en essayant de la bouger)",
+            "Tableau au mur (La vue d'un gigantesque lac qui semble illuminé par le fond.)",
+            "Horloge de grand-père (L'horloge semble cassé et sur 4h18)",
+            "Fauteil",
+            "Vase décoratif (Très ancien, surement de valeur)"
+        ],
         maxGenerated: 1,
         chance: 4,
         sideStories: [
@@ -68,6 +83,8 @@ export const Rooms: Room[] = [
     },
     {
         name: "Cuisine",
+        doorDescription: "Une porte moderne en PVC blanc avec des fausses moulures",
+        objects: [],
         maxGenerated: 2,
         chance: 2,
         sideStories: [
@@ -92,7 +109,9 @@ export const Rooms: Room[] = [
         ],
     },
     {
-        name: "Chambre",
+        name: "Chambre d'enfant",
+        doorDescription: "Une porte rustique classique avec BONJOUR écrit en lettre coloré",
+        objects: [],
         maxGenerated: 4,
         chance: 4,
         sideStories: [
@@ -118,6 +137,8 @@ export const Rooms: Room[] = [
     },
     {
         name: "Salle de bain",
+        doorDescription: "Une porte avec une vitre obfusqué pour ne pas voir l'intérieur.",
+        objects: [],
         maxGenerated: 3,
         chance: 3,
         sideStories: [
@@ -143,12 +164,16 @@ export const Rooms: Room[] = [
     },
     {
         name: "Toilettes",
+        doorDescription: "Une simple porte en bois moderne clair",
+        objects: [],
         maxGenerated: 2,
         chance: 3,
         sideStories: [],
     },
     {
         name: "Dressing",
+        doorDescription: "Une porte coulissante en PVC blanc et grise",
+        objects: [],
         maxGenerated: 1,
         chance: 3,
         sideStories: [
@@ -174,31 +199,61 @@ export const Rooms: Room[] = [
     },
     {
         name: "Bibliothèque",
+        doorDescription: "Une porte noir moulé datant des annés 1700 avec des vitreaux verts et gris.",
+        objects: [
+            "Étagères à livre (Le livre avec le dessin de la clé)",
+            "Table (Le tiroir contient une lettre expliquant `Assurez-vous que l'horloge du salon, qui est toujours parfaitement réglée, serve de référence pour synchroniser toutes les autres horloges de la maison. Il est impératif que chaque pendule affiche l'heure exacte, afin de maintenir l'harmonie temporelle essentielle à notre demeure.`)",
+            "Fauteil de lecture (Très mal assis)",
+            "Lampe de bureau",
+            "Globe terrestre (Solution de l'énigme si les conditions sont réuni)",
+            "Table basse",
+            "Tapis",
+            "Echelle (Permet d'accèder à une boite en haut de l'étagère contenant une pièce du puzzle)",
+            "Tableau au mur (La peinture d'une colonne dans un fond marain)"
+        ],
         maxGenerated: 3,
         chance: 2,
         sideStories: [
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
+**Bibliothèque - 2018**
+
+Sophie Martineau est présente dans la pièce.
+
+Elle semble chercher quelques choses.
+
+Il y a un livre dans la bibliothèque qui est caché derrière de faux livre. **Un test très difficle de TOC permet de le trouver directement.**
+
+Le joueur pourra essayer de déchiffrer les mouvements de Sophie via un test de psychologie. Il pourras voir qu’a plusieurs moments ca main passe à travers le mobilier.
+Si le joueur déduit que les meubles ne sont peut être plus au même endroit que l’illusion lui permettra un jet de TOC normal pour trouver le bouquin.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
+**Bibliothèque - 2020**
+
+Personne dans la bibliothèque, mais il y a une horloge qui semble fonctionner mais qui n’est pas à l’heure.
+
+Mettre les aiguilles sur 4h18 ouvre un compartiment contenant une parchemin déchiré.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
+**Bibliothèque - 2022**
+
+Marc dans la bibliothèque.
+Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une des tables. Impossible d’en savoir plus.
                 `
             }
         ],
     },
     {
         name: "Bureau",
+        doorDescription: "Une porte en bois sombre avec une poignée en or.",
+        objects: [],
         maxGenerated: 2,
         chance: 3,
         sideStories: [
@@ -224,6 +279,8 @@ export const Rooms: Room[] = [
     },
     {
         name: "Salle à manger",
+        doorDescription: "Une rideau qui cache une porte simple des année 1960.",
+        objects: [],
         maxGenerated: 2,
         chance: 2,
         sideStories: [
@@ -249,6 +306,8 @@ export const Rooms: Room[] = [
     },
     {
         name: "Séjour",
+        doorDescription: "Une porte en deux battants en PVC noir.",
+        objects: [],
         maxGenerated: 2,
         chance: 2,
         sideStories: [
@@ -273,58 +332,10 @@ export const Rooms: Room[] = [
         ],
     },
     {
-        name: "Atelier",
-        maxGenerated: 2,
-        chance: 2,
-        sideStories: [
-            {
-                year: 2018,
-                description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2020,
-                description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2022,
-                description: `
-                    DESCRIPTION
-                `
-            }
-        ],
-    },
-    {
-        name: "Salle de jeux",
+        name: "Grande chambre",
+        objects: [],
         maxGenerated: 1,
-        chance: 1,
-        sideStories: [
-            {
-                year: 2018,
-                description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2020,
-                description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2022,
-                description: `
-                    DESCRIPTION
-                `
-            }
-        ],
-    },
-    {
-        name: "Studio",
-        maxGenerated: 1,
+        doorDescription: "Une porte en chène avec une moulure en losange.",
         chance: 1,
         sideStories: [
             {
