@@ -29,7 +29,7 @@ export interface Layout {
 }
 
 export interface SideStory {
-    year: 2022 | 2020 | 2018 | 2016,
+    year: 2022 | 2020 | 2018 | 2016 | 9999 | 9998,
     description: string
 }
 
@@ -77,6 +77,14 @@ export const Rooms: Room[] = [
                 year: 2022,
                 description: `
                     DESCRIPTION
+                `
+            },
+            {
+                year: 9999,
+                description: `
+                    Le joueur voit devant lui un chien de tindalos.
+                    Un test difficle de SAN 6/8. Le chien lui saute dessus et disparait.
+                    Reprise de 5 SAN après l'action
                 `
             }
         ],
@@ -127,7 +135,8 @@ export const Rooms: Room[] = [
             "Petit bureau (Un dessin qui représente la lumière rouge se réflechissant sur 3 mirroirs)",
             "Etagère à livres (Une sorte de cassette pré-enregistré qui dit: Je ne sais plus où je suis, cela change tout le temps, je dois y être depuis des heures, ou seulement quelques minutes...)",
             "Tableau au mur (Représente une carte de l'inde - Nécessite un jet réussit d'HISTOIRE)",
-            "Une petite maison de poupée (Chaque joueur semble être représenté par un petit personnage)"
+            "Une petite maison de poupée (Chaque joueur semble être représenté par un petit personnage)",
+            "Le tapis de jeu (un pot d'argile à cuire)"
         ],
         maxGenerated: 4,
         chance: 4,
@@ -197,20 +206,27 @@ export const Rooms: Room[] = [
     {
         name: "Dressing",
         doorDescription: "Une porte coulissante en PVC blanc et grise",
-        objects: [],
+        objects: [
+            "Penderie (Un petit tiroir au fond contient un texte: Une partie de moi est froide alors que l'autre est remplie d'or)",
+            "Coiffeuse (Dessus, une boite à bijoux. On y trouve une piece de puzzle sur un jet de TOC)",
+            "Valise (des vetements très chiques)",
+            "Etagere (Des vetements et robes de bonne qualité",
+            "Porte ceinture",
+        ],
         maxGenerated: 1,
         chance: 3,
         sideStories: [
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
+                    On peut voir sophie se coiffer devant le miroire de la coiffeuse.
+                    Ensutie elle y met des bijoux.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
+                    Lucas est en train de s'habiller avec des vetements chiques qu'il a trouvé dans la valise.
                 `
             },
             {
@@ -233,7 +249,7 @@ export const Rooms: Room[] = [
             "Table basse",
             "Tapis",
             "Echelle (Permet d'accèder à une boite en haut de l'étagère contenant une pièce du puzzle)",
-            "Tableau au mur (La peinture d'une colonne dans un fond marain)"
+            "Tableau au mur (Représente le pérou - Nécessite un jet HISTOIRE)"
         ],
         maxGenerated: 3,
         chance: 2,
@@ -277,26 +293,33 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
     {
         name: "Bureau",
         doorDescription: "Une porte en bois sombre avec une poignée en or.",
-        objects: [],
+        objects: [
+            "Bureau (Un tiroir qui s'ouvre qui contient des billets d'avions de 2016 pour la norvège, un autre tiroir qui s'ouvre avec la clé)",
+            "Bibliotheque (Des livres anciens. Un test de TOC difficle permet de trouver un livre au hasard sur le mythe)",
+            "Ordinateur (Ne fonctionne qu'en 2020, un mot de passe 'tindalos' permet de trouver des informations sur un sanctuaire qui serait caché sous un lac.)",
+            "Imprimante (Le papier est bourré, le décoincé 'DEX' permet de trouver une pièce du puzzle)",
+            "Petit table à côté du fauteille (Un mirroir y est placé)",
+            
+        ],
         maxGenerated: 2,
         chance: 3,
         sideStories: [
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
+                    Sophie est assi à côté du fauteille. Elle semble jouer avec quelques choses de rond entre ces doigts qu'elle pose sur la table avant de partir.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
+                    Lucas semble furieux est tape contre l'imprimate. Puis il s'en va en trombe!
                 `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
+                    Marc est allongé sur le sol, pleurant...
                 `
             }
         ],
@@ -381,6 +404,14 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
                 `
             }
         ],
+    },
+    {
+        name: "Mur en pierre",
+        chance: 1,
+        doorDescription: "Une porte rustique en bois bancale",
+        maxGenerated: 4,
+        objects: [],
+        sideStories: []
     }
 ];
 
