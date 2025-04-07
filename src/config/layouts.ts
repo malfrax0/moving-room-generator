@@ -50,10 +50,10 @@ export const Rooms: Room[] = [
             "Cheminée (Brique amovible qui contient des dessins de chien de Tindalos)",
             "Canapé",
             "Table basse (Un tiroir à double fond qui contient une sorte de recette pour faire disparaitre le mauvais oeil)",
-            "Lampe de table (Si allumé clignote bizarre)",
+            "Lampe de table (Si allumé en 2020 clignote bizarre)",
             "Tapis (Un amas de poussière considerable se dégage du tapis)",
             "Bibliothèque mural (Rien d'intéressant mais cache un passage derrière. Le joueur peut s'en rendre compte en essayant de la bouger)",
-            "Tableau au mur (La vue d'un gigantesque lac qui semble illuminé par le fond.)",
+            "Tableau au mur (Une carte de l'ukraine - Nécessite un jet d'HISTOIRE)",
             "Horloge de grand-père (L'horloge semble cassé et sur 4h18)",
             "Fauteil",
             "Vase décoratif (Très ancien, surement de valeur)"
@@ -84,7 +84,17 @@ export const Rooms: Room[] = [
     {
         name: "Cuisine",
         doorDescription: "Une porte moderne en PVC blanc avec des fausses moulures",
-        objects: [],
+        objects: [
+            "Réfrigérateur (Dans le freezer un bout de puzzle coincé dans la glace)",
+            "Placard à vaisselle",
+            "Four (Uniquement allumé en 2020)",
+            "Evier (En dessous de l'évier une inscription: La boite n'a plus de jus!)",
+            "Table de la cuisine",
+            "Chaise",
+            "Horloge mural (Affiche 4h18)",
+            "Etagère à épice (A l'intérieur d'un des pots une bague étrange avec un symbole bizarre)",
+            "Un tableau (Une carte de la France)"
+        ],
         maxGenerated: 2,
         chance: 2,
         sideStories: [
@@ -111,26 +121,33 @@ export const Rooms: Room[] = [
     {
         name: "Chambre d'enfant",
         doorDescription: "Une porte rustique classique avec BONJOUR écrit en lettre coloré",
-        objects: [],
+        objects: [
+            "Lit superposé (Un petit ours en peluche en mauvaise etat)",
+            "Armoir (Il y a une batte de baseball, un gant et une balle)",
+            "Petit bureau (Un dessin qui représente la lumière rouge se réflechissant sur 3 mirroirs)",
+            "Etagère à livres (Une sorte de cassette pré-enregistré qui dit: Je ne sais plus où je suis, cela change tout le temps, je dois y être depuis des heures, ou seulement quelques minutes...)",
+            "Tableau au mur (Représente une carte de l'inde - Nécessite un jet réussit d'HISTOIRE)",
+            "Une petite maison de poupée (Chaque joueur semble être représenté par un petit personnage)"
+        ],
         maxGenerated: 4,
         chance: 4,
         sideStories: [
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
+                    RIEN
                 `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
+                    RIEN
                 `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
+                    Indice pour trouver une pièce de puzzle ?
                 `
             }
         ],
@@ -138,26 +155,33 @@ export const Rooms: Room[] = [
     {
         name: "Salle de bain",
         doorDescription: "Une porte avec une vitre obfusqué pour ne pas voir l'intérieur.",
-        objects: [],
+        objects: [
+            "Armoire à pharmacie (Contient des bandages x5, des médicaments codeinés x1 et un mélange dans une fiole avec du dépot qui est en réalité un poison à base de sigule)",
+            "Baignoire (Jet Difficle - Contient une pièce du puzzle)",
+            "Mirroir (Le mirroir est très sale mais une empreinte de main glissant vers le base s'y dessine SAN 0/1)",
+            "WC (L'ouverture du reservoir permet de repérer un croquis montrant un petit objet qui cuit dans un four)",
+            "Lavabos (Un seche cheveux à pile qui fonctionne)",
+            "Etagere à serviettes"
+        ],
         maxGenerated: 3,
         chance: 3,
         sideStories: [
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
+                    RIEN
                 `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
+                    Lucas cherche dans la salle de bain. Il semble fouiller un peu partout jusqu'à ce que ça main traverse un coin de la façade de la baignoire.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
+                    Marc est présent dans la salle de bain. Il cherche dans l'armoire à pharmacie. Il y trouve une fiole qu'il boit. Cela se repete.
                 `
             }
         ],
