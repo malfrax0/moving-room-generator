@@ -83,7 +83,7 @@ export const Rooms: Room[] = [
                 year: 9999,
                 description: `
                     Le joueur voit devant lui un chien de tindalos.
-                    Un test difficle de SAN 6/8. Le chien lui saute dessus et disparait.
+                    Un test difficle de SAN 6/10. Le chien lui saute dessus et disparait.
                     Reprise de 5 SAN après l'action
                 `
             }
@@ -184,7 +184,8 @@ export const Rooms: Room[] = [
             {
                 year: 2020,
                 description: `
-                    Lucas cherche dans la salle de bain. Il semble fouiller un peu partout jusqu'à ce que ça main traverse un coin de la façade de la baignoire.
+                    Lucas cherche dans la salle de bain.
+                    Il semble fouiller un peu partout jusqu'à ce que ça main traverse un coin de la façade de la baignoire.
                 `
             },
             {
