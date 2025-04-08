@@ -132,7 +132,7 @@ export const Rooms: Room[] = [
         objects: [
             "Lit superposé (Un petit ours en peluche en mauvaise etat)",
             "Armoir (Il y a une batte de baseball, un gant et une balle)",
-            "Petit bureau (Un dessin qui représente la lumière rouge se réflechissant sur 3 mirroirs)",
+            "Petit bureau (Un dessin qui représente la lumière rouge se réflechissant sur 3 mirroirs - test de TOC)",
             "Etagère à livres (Une sorte de cassette pré-enregistré qui dit: Je ne sais plus où je suis, cela change tout le temps, je dois y être depuis des heures, ou seulement quelques minutes...)",
             "Tableau au mur (Représente une carte de l'inde - Nécessite un jet réussit d'HISTOIRE)",
             "Une petite maison de poupée (Chaque joueur semble être représenté par un petit personnage)",
@@ -299,7 +299,9 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
             "Ordinateur (Ne fonctionne qu'en 2020, un mot de passe 'tindalos' permet de trouver des informations sur un sanctuaire qui serait caché sous un lac.)",
             "Imprimante (Le papier est bourré, le décoincé 'DEX' permet de trouver une pièce du puzzle)",
             "Petit table à côté du fauteille (Un mirroir y est placé)",
-            
+            "Tableau au mur (Un tableau représentant l'albanie - test HISTOIRE)",
+            "Horloge mural (Indique 4h18)",
+            "Etagere (Des objets présentés qui peuvent valoir de l'argent - test d'ESTIMATION ~500euros)"
         ],
         maxGenerated: 2,
         chance: 3,
@@ -307,7 +309,7 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
             {
                 year: 2018,
                 description: `
-                    Sophie est assi à côté du fauteille. Elle semble jouer avec quelques choses de rond entre ces doigts qu'elle pose sur la table avant de partir.
+                    Sophie est assi à côté du fauteille. Elle semble jouer avec quelques choses de rond entre ces doigts qu'elle pose sur la petite table du fauteille avant de partir.
                 `
             },
             {
@@ -327,7 +329,15 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
     {
         name: "Salle à manger",
         doorDescription: "Une rideau qui cache une porte simple des année 1960.",
-        objects: [],
+        objects: [
+            "La table à manger (Note à la femme de ménage - Merci de ne pas faire la poussière sur les étagères de la bibliothèque. Les livres y sont précieux.)",
+            "Status buste (Un homme avec un monocle avec une plaque en dessous disant `Ambrose Dewart` - Si le joueur veut voir le monocle de plus prêt il découvre un mirroir)",
+            "Vessellier",
+            "Armoires",
+            "Cheminé (Si ils veulent grimpé une chauve-souris les aggresses. Un nid est formé et la cheminé est bouché / Un post-it brulé avec marqué : MDP - **********alos - test de TOC)",
+            "Une télévision cassé",
+            "Un tapis",
+        ],
         maxGenerated: 2,
         chance: 2,
         sideStories: [
