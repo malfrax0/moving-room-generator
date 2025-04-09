@@ -53,7 +53,7 @@ export const Rooms: Room[] = [
             "Lampe de table (Si allumé en 2020 clignote bizarre)",
             "Tapis (Un amas de poussière considerable se dégage du tapis)",
             "Bibliothèque mural (Rien d'intéressant mais cache un passage derrière. Le joueur peut s'en rendre compte en essayant de la bouger)",
-            "Tableau au mur (Une carte de l'ukraine - Nécessite un jet d'HISTOIRE)",
+            "Tableau au mur (Une carte de l'ukraine)",
             "Horloge de grand-père (L'horloge semble cassé et sur 4h18)",
             "Fauteil",
             "Vase décoratif (Très ancien, surement de valeur)"
@@ -64,19 +64,20 @@ export const Rooms: Room[] = [
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
+                    La femme est stressé, elle fait des tours stressant.
+                    Elle semble ensuite se diriger versla bibliothèque et disparait à travers. 
                 `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
+                    L'homme regarde l'horloge avec insistance, puis semble noter quelques choses sur un papier.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
+                    L'enfant est planqué dans un coin terrorisé.
                 `
             },
             {
@@ -109,19 +110,20 @@ export const Rooms: Room[] = [
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
+                    La femme met quelques choses dans le four. On peut voir que le four est sur 220 degres.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
+                    L'homme se fait un petit repas avec ce qu'il y a dans le frigos.
+                    Puis il ouvre le freezer, semble surpris et disparait.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
+                    L'enfant essaye tant bien que mal à acceder au freezer et semble avoir du mal à y sortir quelques choses.
                 `
             }
         ],
@@ -142,21 +144,17 @@ export const Rooms: Room[] = [
         chance: 4,
         sideStories: [
             {
-                year: 2018,
-                description: `
-                    RIEN
-                `
-            },
-            {
-                year: 2020,
-                description: `
-                    RIEN
-                `
-            },
-            {
                 year: 2022,
                 description: `
-                    Indice pour trouver une pièce de puzzle ?
+                    L'enfant est en train de dessiner avec du noir et du rouge sur une feuille.
+                    Impossible de savoir ce qu'il dessine.
+                `
+            },
+            {
+                year: 9999,
+                description: `
+                    Une respiration semble provenir de dessous du lit.
+                    Si le joueur décide de regarder il y voit deux yeux teinté de rouge. Un test de POU difficile SAN 1/1d6 lui permet d'échapper la paralisie. Le chien de Tindalos sort et attaque le joueur avant de disparaitre.
                 `
             }
         ],
@@ -184,14 +182,14 @@ export const Rooms: Room[] = [
             {
                 year: 2020,
                 description: `
-                    Lucas cherche dans la salle de bain.
+                    L'homme cherche dans la salle de bain.
                     Il semble fouiller un peu partout jusqu'à ce que ça main traverse un coin de la façade de la baignoire.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    Marc est présent dans la salle de bain. Il cherche dans l'armoire à pharmacie. Il y trouve une fiole qu'il boit. Cela se repete.
+                    L'enfant est présent dans la salle de bain. Il cherche dans l'armoire à pharmacie. Il y trouve une fiole qu'il boit. Cela se repete.
                 `
             }
         ],
@@ -220,14 +218,14 @@ export const Rooms: Room[] = [
             {
                 year: 2018,
                 description: `
-                    On peut voir sophie se coiffer devant le miroire de la coiffeuse.
+                    On peut voir La femme se coiffer devant le miroire de la coiffeuse.
                     Ensutie elle y met des bijoux.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    Lucas est en train de s'habiller avec des vetements chiques qu'il a trouvé dans la valise.
+                    L'homme est en train de s'habiller avec des vetements chiques qu'il a trouvé dans la valise.
                 `
             },
             {
@@ -260,13 +258,13 @@ export const Rooms: Room[] = [
                 description: `
 **Bibliothèque - 2018**
 
-Sophie Martineau est présente dans la pièce.
+La femme Martineau est présente dans la pièce.
 
 Elle semble chercher quelques choses.
 
 Il y a un livre dans la bibliothèque qui est caché derrière de faux livre. **Un test très difficle de TOC permet de le trouver directement.**
 
-Le joueur pourra essayer de déchiffrer les mouvements de Sophie via un test de psychologie. Il pourras voir qu’a plusieurs moments ca main passe à travers le mobilier.
+Le joueur pourra essayer de déchiffrer les mouvements de La femme via un test de psychologie. Il pourras voir qu’a plusieurs moments ca main passe à travers le mobilier.
 Si le joueur déduit que les meubles ne sont peut être plus au même endroit que l’illusion lui permettra un jet de TOC normal pour trouver le bouquin.
                 `
             },
@@ -285,7 +283,7 @@ Mettre les aiguilles sur 4h18 ouvre un compartiment contenant une parchemin déc
                 description: `
 **Bibliothèque - 2022**
 
-Marc dans la bibliothèque.
+L'enfant dans la bibliothèque.
 Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une des tables. Impossible d’en savoir plus.
                 `
             }
@@ -310,19 +308,19 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
             {
                 year: 2018,
                 description: `
-                    Sophie est assi à côté du fauteille. Elle semble jouer avec quelques choses de rond entre ces doigts qu'elle pose sur la petite table du fauteille avant de partir.
+                    La femme est assi à côté du fauteille. Elle semble jouer avec quelques choses de rond entre ces doigts qu'elle pose sur la petite table du fauteille avant de partir.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    Lucas semble furieux est tape contre l'imprimate. Puis il s'en va en trombe!
+                    L'homme semble furieux est tape contre l'imprimate. Puis il s'en va en trombe!
                 `
             },
             {
                 year: 2022,
                 description: `
-                    Marc est allongé sur le sol, pleurant...
+                    L'enfant est allongé sur le sol, pleurant...
                 `
             }
         ],
@@ -365,7 +363,17 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
     {
         name: "Séjour",
         doorDescription: "Une porte en deux battants en PVC noir.",
-        objects: [],
+        objects: [
+            "Canapé",
+            "Table basse",
+            "Télévision",
+            "Tapis",
+            "Bibliothèque murale",
+            "Tableau au mur",
+            "Horloge (Affiche 4h18)",
+            "Vase (A l'intérieur se cache un bout de puzzle)",
+            "Petit bureau (Une petite note est caché parmis beaucoup d'autre. `J'ai réparer temporairement le miroir de la chambre pour que l'éclat ne ce voit plus. Peut être faudrait-il le faire remplacer depuis le temps ?`)"
+        ],
         maxGenerated: 2,
         chance: 2,
         sideStories: [
@@ -391,7 +399,17 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
     },
     {
         name: "Grande chambre",
-        objects: [],
+        objects: [
+            "Lit",
+            "Table de chevet (Un monocle transparant sur la table de chevet)",
+            "Tableau",
+            "Valise (Une représentation d'un plongeur sous la forme d'une petite figurine de plomb)",
+            "Petit bureau",
+            "Armoire",
+            "Tableau",
+            "Horloge (Affiche 4h18)",
+            "Miroir (Un petit miroir rond se trouve dans le coin du miroir - test de TOC)"
+        ],
         maxGenerated: 1,
         doorDescription: "Une porte en chène avec une moulure en losange.",
         chance: 1,
