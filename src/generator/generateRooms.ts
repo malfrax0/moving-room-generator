@@ -26,9 +26,10 @@ export interface GenerateRoomsOptions {
     frozenRooms: RoomState[];
     floor: number;
     hasStory: (key: string) => boolean;
+    hasStoryBeenGenerated: (key: string, ignoreFloor?: number) => boolean;
 }
 
-export function generateRooms({ lockedRooms, frozenRooms, floor, hasStory }: GenerateRoomsOptions): LayerState | null {
+export function generateRooms({ lockedRooms, frozenRooms, floor, hasStory, hasStoryBeenGenerated }: GenerateRoomsOptions): LayerState | null {
     const usableLayouts = Layouts.filter((layout) => {
         if (layout.notOn0 && floor === 0) return false;
         if (layout.onlyOn0 && floor !== 0) return false;
@@ -61,6 +62,8 @@ export function generateRooms({ lockedRooms, frozenRooms, floor, hasStory }: Gen
                 maxGenerated: 0,
                 chance: 0,
                 sideStories: [],
+                doorDescription: "",
+                objects: []
             },
         });
     }
@@ -77,6 +80,8 @@ export function generateRooms({ lockedRooms, frozenRooms, floor, hasStory }: Gen
     }
     const uniqueNumbersArray = Array.from(uniqueNumbers);
 
+    const storyCurrentGeneration: string[] = [];
+
     for (let i = 3; i < layout.emplacments.length; i++) {
         const idx = uniqueNumbersArray.findIndex((v) => v === i - 3);
         if (idx >= 0) {
@@ -89,7 +94,11 @@ export function generateRooms({ lockedRooms, frozenRooms, floor, hasStory }: Gen
         const room = usableRoomsWeighted[Math.floor(Math.random() * usableRoomsWeighted.length)];
         
         let story: RoomState['story'] = undefined;
-        const storiesAvailable = room.sideStories.filter((story) => !hasStory(`${room.name}-${story.year}`));
+        const storiesAvailable = room.sideStories.filter((story) =>
+            !hasStory(`${room.name}-${story.year}`)
+            && !hasStoryBeenGenerated(`${room.name}-${story.year}`, floor)
+            && !storyCurrentGeneration.includes(`${room.name}-${story.year}`)
+        );
         
         if (storiesAvailable.length) {
             const choosenStory = storiesAvailable[Math.floor(Math.random() * storiesAvailable.length)];
@@ -97,6 +106,7 @@ export function generateRooms({ lockedRooms, frozenRooms, floor, hasStory }: Gen
                 key: `${room.name}-${choosenStory.year}`,
                 ...choosenStory
             }
+            storyCurrentGeneration.push(`${room.name}-${choosenStory.year}`);
         }
 
         newRooms.push({

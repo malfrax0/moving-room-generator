@@ -120,14 +120,15 @@ function RoomRender({ roomState, layer, floor }: RoomRenderProps) {
                             </Grid2>
                         </Grid2>
                         {
-                            roomState.story && (
+                            roomState.story ? (
                                 <>
                                     { hasStory(`${roomState.room.name}-${roomState.story.year}`) && (<Typography variant="caption" color="error">Story has been done</Typography>)}
                                     <Typography variant="h6">{roomState.story.year}</Typography>
                                     <Typography variant="body1">{ roomState.story.description }</Typography>
                                     <Button onClick={makeValidationStoryFunction(storyKey)} sx={{mt: 5}} variant="contained" color={hasStory(storyKey) ? "info" : "error"}>{ hasStory(storyKey) ? `Unvalidate story` : `Validate story`}</Button>
                                 </>
-                            )
+                            ) : 
+                            <Typography variant="h6" color="error">No story</Typography>
                         }
                     </Grid2>
                     <Grid2 size={4} sx={{ p: 1 }}>
@@ -258,7 +259,9 @@ export default function ShowCurrentLayer({layer, showEmplacments, floor}: ShowCu
             name: `${empl.name} - ${index}` || "Emplacment",
             maxGenerated: 0,
             chance: 0,
-            sideStories: []
+            sideStories: [],
+            doorDescription: "",
+            objects: []
         }
     })) : layer.rooms;
 

@@ -66,6 +66,19 @@ export const useRoomsState = () => {
         });
     }
 
+    const hasStoryBeenGenerated = (key: string, ignoreFloor?: number) => {
+        let isGenerated = false;
+        layers.forEach((layer, index) => {
+            if (index === ignoreFloor) return;
+            layer.rooms.forEach((room) => {
+                if (`${room.room.name}-${room.story?.year}` === key) {
+                    isGenerated = true;
+                }
+            });
+        });
+        return isGenerated;
+    }
+
     const generateLayer = (floor: number, add: boolean = false) => {
         if (!add) {
             const layer = getLayer(floor);
@@ -83,7 +96,8 @@ export const useRoomsState = () => {
                 return playerStates.some((playerState) => playerState.roomId === room.roomId);
             }) : [],
             floor,
-            hasStory
+            hasStory,
+            hasStoryBeenGenerated
         });
         if (newLayer === null) {
             console.error("New layer impossible.");
