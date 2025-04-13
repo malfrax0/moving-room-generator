@@ -49,7 +49,7 @@ export const Rooms: Room[] = [
         objects: [
             "Cheminée (Brique amovible qui contient des dessins de chien de Tindalos)",
             "Canapé",
-            "Table basse (Un tiroir à double fond qui contient une sorte de recette pour faire disparaitre le mauvais oeil)",
+            "Table basse (Un tiroir à double fond qui contient une sorte de recette pour faire disparaitre le mauvais oeil dans un langage religieux. Plus proche de croyance que de vérité)",
             "Lampe de table (Si allumé en 2020 clignote bizarre)",
             "Tapis (Un amas de poussière considerable se dégage du tapis)",
             "Bibliothèque mural (Rien d'intéressant mais cache un passage derrière. Le joueur peut s'en rendre compte en essayant de la bouger)",
@@ -64,28 +64,27 @@ export const Rooms: Room[] = [
             {
                 year: 2018,
                 description: `
-                    La femme est stressé, elle fait des tours stressant.
-                    Elle semble ensuite se diriger versla bibliothèque et disparait à travers. 
+Vous observez la femme faire les cent pas dans le salon, son visage marqué par une anxiété palpable. Ses mouvements sont erratiques, trahissant une nervosité extrême. Soudain, elle se dirige vers la bibliothèque, ses yeux fixés sur un point précis. À votre grande surprise, elle traverse la bibliothèque comme si elle n'était qu'une illusion, disparaissant de votre vue. Vous réalisez que quelque chose d'anormal se passe ici.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    L'homme regarde l'horloge avec insistance, puis semble noter quelques choses sur un papier.
-                `
+L'homme se tient debout, son regard fixé sur l'horloge du salon. Il semble hypnotisé par les aiguilles, comme si le temps lui-même avait une signification particulière pour lui. Après un moment, il sort un petit carnet de sa poche et griffonne quelques notes avec une précision méticuleuse. Vous vous demandez ce qu'il peut bien écrire avec autant de concentration.                `
             },
             {
                 year: 2022,
                 description: `
-                    L'enfant est planqué dans un coin terrorisé.
-                `
+Dans un coin du salon, un enfant est recroquevillé, ses yeux écarquillés de terreur. Il semble paralysé par la peur, incapable de bouger ou de parler. Vous ressentez une profonde empathie pour lui, mais aussi une inquiétude grandissante quant à la cause de sa terreur.                `
             },
             {
                 year: 9999,
                 description: `
-                    Le joueur voit devant lui un chien de tindalos.
-                    Un test difficle de SAN 6/10. Le chien lui saute dessus et disparait.
-                    Reprise de 5 SAN après l'action
+Vous vous figez, pétrifié, en voyant devant vous un Chien de Tindalos, une créature cauchemardesque aux angles impossibles et aux crocs acérés.
+La simple vision de cette abomination impose un test difficile de Santé Mentale (SAN 6/10), mettant à l'épreuve votre résistance psychique face à l'horreur indicible.
+Sans hésitation, le Chien de Tindalos bondit sur vous, ses mouvements défiant les lois de la physique, avant de disparaître aussi soudainement qu'il est apparu, laissant derrière lui une sensation de malaise persistant.
+Après cette rencontre traumatisante, vous pouvez récupérer 5 points de SAN, vous permettant de reprendre vos esprits et de continuer votre exploration, bien que marqué par cette expérience terrifiante.
+Cette épreuve renforce votre détermination à percer les mystères de cet univers lovecraftien, tout en soulignant les dangers omniprésents qui guettent les imprudents.
                 `
             }
         ],
@@ -110,21 +109,18 @@ export const Rooms: Room[] = [
             {
                 year: 2018,
                 description: `
-                    La femme met quelques choses dans le four. On peut voir que le four est sur 220 degres.
-                `
+Vous observez la femme s'affairer dans la cuisine, ses mouvements rapides et précis. Elle ouvre le four, et vous remarquez qu'il est réglé à une température élevée de 220 degrés. Avec une expression déterminée, elle y place un objet mystérieux avant de refermer la porte du four. Vous vous demandez ce qu'elle peut bien cuire à une telle température.                `
             },
             {
                 year: 2020,
                 description: `
-                    L'homme se fait un petit repas avec ce qu'il y a dans le frigos.
-                    Puis il ouvre le freezer, semble surpris et disparait.
+L'homme se tient devant le réfrigérateur, fouillant parmi les restes pour se préparer un petit repas. Après avoir rassemblé quelques ingrédients, il se tourne vers le freezer. Lorsqu'il l'ouvre, son expression change brusquement, passant de la nonchalance à la surprise, voire à l'horreur. Avant que vous puissiez réagir, il disparaît soudainement, comme aspiré par une force invisible.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    L'enfant essaye tant bien que mal à acceder au freezer et semble avoir du mal à y sortir quelques choses.
-                `
+L'enfant se tient devant le freezer, ses petites mains s'efforçant d'ouvrir la porte. Il semble désespéré, ses efforts pour accéder à quelque chose à l'intérieur étant visiblement entravés par sa taille et sa force limitée. Vous ressentez une urgence à l'aider, mais aussi une appréhension quant à ce qu'il pourrait y avoir dans le freezer.                `
             }
         ],
     },
@@ -146,15 +142,17 @@ export const Rooms: Room[] = [
             {
                 year: 2022,
                 description: `
-                    L'enfant est en train de dessiner avec du noir et du rouge sur une feuille.
-                    Impossible de savoir ce qu'il dessine.
+                    En entrant dans la chambre d'enfant, vous êtes frappé par l'atmosphère étrangement silencieuse et oppressante. L'enfant est assis à une petite table, concentré sur une feuille de papier. Il dessine avec une intensité troublante, utilisant des crayons noirs et rouges. Ses mouvements sont précis, presque rituel, mais il est impossible de distinguer clairement ce qu'il dessine. Les formes et les lignes semblent se tordre et se déformer sous vos yeux, comme si elles défiaient les lois de la géométrie.
                 `
             },
             {
                 year: 9999,
                 description: `
-                    Une respiration semble provenir de dessous du lit.
-                    Si le joueur décide de regarder il y voit deux yeux teinté de rouge. Un test de POU difficile SAN 1/1d6 lui permet d'échapper la paralisie. Le chien de Tindalos sort et attaque le joueur avant de disparaitre.
+En pénétrant dans la chambre d'enfant, une atmosphère lourde et oppressante vous enveloppe.
+Vous entendez une respiration lourde et saccadée provenant de sous le lit.
+Le son est inhumain, comme si quelque chose de monstrueux se tapissait dans l'ombre.
+Votre cœur bat à tout rompre alors que vous vous approchez lentement du lit, prêt à affronter l'inconnu.
+Si le joueur regarde: test de POU difficile SAN 1/1d6 -  Le chien de Tindalos sort et attaque le joueur avant de disparaitre. sinon paralisie
                 `
             }
         ],
@@ -182,15 +180,14 @@ export const Rooms: Room[] = [
             {
                 year: 2020,
                 description: `
-                    L'homme cherche dans la salle de bain.
-                    Il semble fouiller un peu partout jusqu'à ce que ça main traverse un coin de la façade de la baignoire.
+Vous entrez dans la salle de bain, une pièce étroite et mal éclairée, où l'air est chargé d'une humidité oppressante. L'homme est déjà là, ses mouvements frénétiques trahissent une urgence palpable. Il fouille chaque recoin, ouvrant les armoires, déplaçant les objets, comme s'il cherchait quelque chose de vital.                    Il semble fouiller un peu partout jusqu'à ce que ça main traverse un coin de la façade de la baignoire.
+Test de Perception: En regardant de plus prêt, on peut voir que la main de l'homme passe à travers la baignoire en bas à gauche.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    L'enfant est présent dans la salle de bain. Il cherche dans l'armoire à pharmacie. Il y trouve une fiole qu'il boit. Cela se repete.
-                `
+Vous entrez dans la salle de bain et trouvez l'enfant debout sur la pointe des pieds, fouillant dans l'armoire à pharmacie. Il semble chercher quelque chose de spécifique, ses petites mains tremblant légèrement. Soudain, il saisit une fiole contenant un liquide sombre et la porte à ses lèvres, buvant son contenu d'un trait. Vous observez, horrifié, alors que l'enfant répète ce rituel morbide, comme si le temps se répété.                `
             }
         ],
     },
@@ -218,20 +215,18 @@ export const Rooms: Room[] = [
             {
                 year: 2018,
                 description: `
-                    On peut voir La femme se coiffer devant le miroire de la coiffeuse.
-                    Ensutie elle y met des bijoux.
+La femme se tient devant le miroir de la coiffeuse, brossant ses cheveux avec soin. Elle prend son temps, chaque coup de brosse est précis et délibéré. Une fois satisfaite de sa coiffure, elle ouvre un petit coffret à bijoux et commence à se parer de colliers, bracelets et boucles d'oreilles.
                 `
             },
             {
                 year: 2020,
                 description: `
-                    L'homme est en train de s'habiller avec des vetements chiques qu'il a trouvé dans la valise.
-                `
+L'homme se tient devant un miroir en pied, ajustant méticuleusement une chemise de soie qu'il vient de sortir d'une valise ouverte à ses pieds. Il enfile ensuite un pantalon parfaitement repassé et une veste assortie, chaque mouvement empreint d'une certaine dignité.                `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
+                    L'enfant est assis par terre, entouré de vêtements éparpillés, feuilletant un vieux livre d'images avec une fascination intense. Il semble complètement absorbé par les pages jaunies, murmurant des mots inaudibles tout en tournant les pages.
                 `
             }
         ],
@@ -308,20 +303,12 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
             {
                 year: 2018,
                 description: `
-                    La femme est assi à côté du fauteille. Elle semble jouer avec quelques choses de rond entre ces doigts qu'elle pose sur la petite table du fauteille avant de partir.
-                `
+La femme est assise à côté du fauteuil, ses doigts jouant distraitement avec un objet rond. Elle le pose délicatement sur la petite table près du fauteuil avant de se lever et de quitter la pièce sans un mot. L'objet brille faiblement sous la lumière tamisée, attirant votre attention.                `
             },
             {
                 year: 2020,
                 description: `
-                    L'homme semble furieux est tape contre l'imprimate. Puis il s'en va en trombe!
-                `
-            },
-            {
-                year: 2022,
-                description: `
-                    L'enfant est allongé sur le sol, pleurant...
-                `
+Vous entrez dans le bureau, une pièce silencieuse perturbée uniquement par le bourdonnement de l'imprimante. L'homme, visiblement furieux, frappe du poing contre la machine, ses traits déformés par la colère. Après un dernier coup violent, il se redresse brusquement et quitte la pièce en trombe, laissant derrière lui un silence pesant et une imprimante endommagée.                `
             }
         ],
     },
@@ -329,7 +316,7 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
         name: "Salle à manger",
         doorDescription: "Une rideau qui cache une porte simple des année 1960.",
         objects: [
-            "La table à manger (Note à la femme de ménage - Merci de ne pas faire la poussière sur les étagères de la bibliothèque. Les livres y sont précieux.)",
+            "La table à manger (Note à moi même - Ne pas laisser la femme de ménage faire la poussière sur les étagères de la bibliothèque. Les livres y sont précieux.)",
             "Status buste (Un homme avec un monocle avec une plaque en dessous disant `Ambrose Dewart` - Si le joueur veut voir le monocle de plus prêt il découvre un mirroir)",
             "Vessellier",
             "Armoires",
@@ -343,20 +330,12 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
-                `
+La femme se tient près de l'âtre, ses mains tendues vers les flammes pour se réchauffer. Soudain, son visage pâlit et ses yeux s'écarquillent de terreur. Elle jette un regard affolé autour d'elle, comme si elle avait vu quelque chose d'invisible pour vous. Sans un mot, elle se précipite hors de la pièce, laissant derrière elle un silence perturbé uniquement par le crépitement du feu.                `
             },
             {
                 year: 2020,
                 description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2022,
-                description: `
-                    DESCRIPTION
-                `
+L'homme est assis à la table, penché sur un vieux carnet, sa plume grattant frénétiquement le papier. Il semble complètement absorbé par ce qu'il écrit, ses épaules voûtées et son visage dissimulé par l'ombre. Après quelques instants, il déchire la page du carnet, la plie soigneusement et la glisse dans une enveloppe qu'il cache sous un livre ancien posé sur la table. Il se lève ensuite et quitte la pièce sans un regard en arrière.                `
             }
         ],
     },
@@ -380,20 +359,19 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
             {
                 year: 2018,
                 description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2020,
-                description: `
-                    DESCRIPTION
+                    Scène : Le Séjour
+
+Vous entrez dans le séjour, une pièce faiblement éclairée où l'air est chargé d'une tension palpable. La femme est assise au bureau, sa plume grattant frénétiquement le papier. Elle semble absorbée par son écriture, ses yeux fixés sur les pages qui se remplissent de symboles étranges et de mots en langues anciennes. Soudain, elle s'arrête, levant la tête comme si elle sentait une présence. Elle fini par sortir de la pièce.
                 `
             },
             {
                 year: 2022,
                 description: `
-                    DESCRIPTION
-                `
+L'enfant, visiblement maladroit, trébuche et renverse un vase posé sur une table basse. Le vase se brise en mille morceaux, éparpillant des débris de porcelaine sur le sol. Au lieu de ramasser les fragments, l'enfant semble captivé par quelque chose de petit parmi les débris. Il se penche, le ramasse avec précaution et l'examine avec curiosité, oubliant complètement le désordre qu'il a causé.                `
+            },
+            {
+                year: 9999,
+                description: `Un froid glacial envahit la pièce, et vous sentez une présence maléfique se rapprocher. Des grattements se font entendre... Vous réalisez avec horreur que c'est un chien de Tindalos. Ca formes grotesque et anguleuse apparait et disparait dans les coins sombres de la pièce, leurs yeux brillants de malveillance. Test de SAN 1d4/1d10. Le chien fonce et donne un coup de griffe escquivable. Mais cette fois le joueur semble se réveiller avec une douleur au ventre.. Il y voit des entailles pas trop profonde. -1pv`
             }
         ],
     },
@@ -414,24 +392,6 @@ Les joueurs pourront voir qu’il essaie de reconstruire quelques choses sur une
         doorDescription: "Une porte en chène avec une moulure en losange.",
         chance: 1,
         sideStories: [
-            {
-                year: 2018,
-                description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2020,
-                description: `
-                    DESCRIPTION
-                `
-            },
-            {
-                year: 2022,
-                description: `
-                    DESCRIPTION
-                `
-            }
         ],
     },
     {
